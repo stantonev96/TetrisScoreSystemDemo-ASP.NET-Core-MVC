@@ -1,0 +1,14 @@
+﻿@using WebTetrisScoreSystem.ViewModels
+@model IEnumerable<PlayerInputModel>
+
+<h1>Add player</h1>
+
+@foreach (var player in Model)
+{
+    <div>
+        <label>Name: </label>
+        <input asp-for="@player.Name" />
+        <label>Scores:</label>
+        <select asp-items="player.PlayerScores"></select>
+    </div>
+}

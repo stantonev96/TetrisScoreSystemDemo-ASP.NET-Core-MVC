@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTetrisScoreSystem", "WebTetrisScoreSystem\WebTetrisScoreSystem.csproj", "{88769FB1-471E-452F-BE7B-3948D6C202FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{BBD0382B-AF4E-4E5F-99F5-E9E4467B5597}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88769FB1-471E-452F-BE7B-3948D6C202FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88769FB1-471E-452F-BE7B-3948D6C202FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88769FB1-471E-452F-BE7B-3948D6C202FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88769FB1-471E-452F-BE7B-3948D6C202FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD0382B-AF4E-4E5F-99F5-E9E4467B5597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD0382B-AF4E-4E5F-99F5-E9E4467B5597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD0382B-AF4E-4E5F-99F5-E9E4467B5597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD0382B-AF4E-4E5F-99F5-E9E4467B5597}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEE8BB3A-DEFA-4207-8D83-CB13FF966EA5}
+	EndGlobalSection
+EndGlobal
