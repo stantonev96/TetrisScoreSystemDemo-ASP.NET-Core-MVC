@@ -44,7 +44,7 @@ namespace WebTetrisScoreSystem.Areas.Administration.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult EditScoreForCurrentPlayer(string scoreId)
         {
-            UpdateScoresViewModel viewModel = adminService.GetScoreCurrentPlayer(scoreId);
+            PlayGameInputModel viewModel = adminService.GetScoreCurrentPlayer(scoreId);
             return this.View(viewModel);
         }
 
@@ -59,7 +59,7 @@ namespace WebTetrisScoreSystem.Areas.Administration.Controllers
             }
 
             await adminService.EditScoreForCurrentPlayerAsync(input, scoreId);
-            return this.Redirect("/Administration/Admin/Index");
+            return this.Redirect("/Administration/Admin/ManagePlayers");
         }
 
         [Authorize(Roles = "Admin")]

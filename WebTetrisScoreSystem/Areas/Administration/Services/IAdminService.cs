@@ -13,7 +13,7 @@ namespace WebTetrisScoreSystem.Areas.Administration.Services
 
         IEnumerable<UpdateScoresViewModel> GetAllScoresCurrentPlayer(string playerId);
 
-        UpdateScoresViewModel GetScoreCurrentPlayer(string scoreId);
+        PlayGameInputModel GetScoreCurrentPlayer(string scoreId);
 
         Task EditScoreForCurrentPlayerAsync(PlayGameInputModel input, string scoreId);
 

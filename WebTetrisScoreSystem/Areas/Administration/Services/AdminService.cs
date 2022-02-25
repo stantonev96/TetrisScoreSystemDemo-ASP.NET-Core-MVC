@@ -75,14 +75,14 @@ namespace WebTetrisScoreSystem.Areas.Administration.Services
             return scores;
         }
 
-        public UpdateScoresViewModel GetScoreCurrentPlayer(string scoreId)
+        public PlayGameInputModel GetScoreCurrentPlayer(string scoreId)
         {
             var viewModel = tetrisDbContext.PlayerGames.Where(x => x.GameId == scoreId)
-                .Select(x => new UpdateScoresViewModel
+                .Select(x => new PlayGameInputModel
                 {
                     ScoreId = x.GameId,
-                    Score = string.Format("{0:0.000}", x.Game.Score),
-                    PlayerNickname = x.Player.PlayerNickname,
+                    Score = double.Parse(x.Game.Score),
+                    UserId = x.PlayerId,
                 }).FirstOrDefault();
 
             return viewModel;
