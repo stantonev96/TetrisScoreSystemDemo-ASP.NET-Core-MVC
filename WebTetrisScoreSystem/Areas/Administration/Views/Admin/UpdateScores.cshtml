@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebTetrisScoreSystem.Areas.Administration.ViewModels.UpdateScoresViewModel>
+
+<h3 class="offset-5">@Model.Select(x => x.PlayerNickname).FirstOrDefault()</h3>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <table class="table table-hover">
+            @foreach (var score in Model)
+            {
+                var tm = "#myModal" + score.ScoreId;
+                var mid = "myModal" + score.ScoreId;
+                <tr>
+                    <td>
+                        @score.Score
+                        <span class="offset-6">
+                            <label name="Id" hidden></label>
+                            <a asp-area="Administration" asp-route-scoreId=@score.ScoreId asp-action="EditScoreForCurrentPlayer" class="far fa-edit"></a>
+                            <a class="far fa-trash-alt" data-toggle="modal" data-target="@tm"></a>
+                        </span>
+                        <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want to delete this item?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a asp-area="Administration" asp-route-scoreId=@score.ScoreId asp-action="DeleteScoreCurrentPlayer" id="deleteBtn" class="btn bg-danger mr-1">Delete</a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-4"></div>
+</div>

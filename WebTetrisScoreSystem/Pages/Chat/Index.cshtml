@@ -1,0 +1,24 @@
+﻿@page
+<div class="row offset-4">
+    <div class="col-6">
+        <p class="list-group" id="messagesList"></p>
+        <hr />
+    </div>
+</div>
+
+<div class="row offset-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <input type="text" id="messageInput" />
+        <button class="btn btn-primary" id="sendButton">Send Message</button>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+
+@section Scripts
+{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+}

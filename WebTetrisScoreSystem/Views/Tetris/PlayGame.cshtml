@@ -1,0 +1,15 @@
+﻿@model WebTetrisScoreSystem.ViewModels.PlayGameInputModel
+
+<form class="col-md-4 mt-5 offset-2" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.Score"></label>
+        <input asp-for="@Model.Score" class="form-control" />
+        <span asp-validation-for="@Model.Score" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary" asp-action="PlayGame">Tetris</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

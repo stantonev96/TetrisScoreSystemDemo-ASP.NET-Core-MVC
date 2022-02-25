@@ -1,0 +1,15 @@
+﻿@model WebTetrisScoreSystem.ViewModels.ChangeNicknameInputModel
+
+<form class="col-md-4 mt-5 offset-2" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.PlayerNickname"></label>
+        <input asp-for="@Model.PlayerNickname" class="form-control" />
+        <span asp-validation-for="@Model.PlayerNickname" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary" asp-action="ChangeNickname">Save Nickname</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
