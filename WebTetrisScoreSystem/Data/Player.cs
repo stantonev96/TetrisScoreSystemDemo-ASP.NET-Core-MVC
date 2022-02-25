@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebTetrisScoreSystem.Data
 {
-    public partial class Player
+    public class Player : IdentityUser
     {
         public Player()
         {
-            PlayerScores = new HashSet<PlayerScore>();
+            PlayerGames = new HashSet<PlayerGame>();
         }
 
-        public int Id { get; set; }
-        public string Nickname { get; set; }
+        public string PlayerNickname { get; set; }
 
-        public virtual ICollection<PlayerScore> PlayerScores { get; set; }
+        public ICollection<PlayerGame> PlayerGames { get; set; }
     }
 }

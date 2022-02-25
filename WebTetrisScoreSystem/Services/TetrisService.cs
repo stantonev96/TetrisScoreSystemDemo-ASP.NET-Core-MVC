@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,52 +9,31 @@ namespace WebTetrisScoreSystem.Services
 {
     public class TetrisService : ITetrisService
     {
-        private readonly TetrisDBContext dbContext;
+        private readonly ApplicationDbContext tetrisDbContext;
 
-        public TetrisService(TetrisDBContext dbContext)
+        public TetrisService(ApplicationDbContext tetrisDbContext)
         {
-            this.dbContext = dbContext;
+            this.tetrisDbContext = tetrisDbContext;
         }
 
-        public async Task AddPlayerScoreAsync(PlayerInputModel input)
+        public async Task AddScoreForCurrentPlayerAsync(PlayGameInputModel input)
         {
-            var player = dbContext.Players.FirstOrDefault(x => x.Nickname == input.Name);
+            var score = new Game { Score = string.Format("{0:0.000}", input.Score) };
+            await tetrisDbContext.Games.AddAsync(score);
 
-            if(player == null)
-            {
-                player = new Player
-                {
-                    Nickname = input.Name,
-                };
-            }
+            var playerScore = new PlayerGame { GameId = score.Id, PlayerId = input.UserId };
+            await tetrisDbContext.PlayerGames.AddAsync(playerScore);
 
-            var playerScore = new PlayerScore
-            {
-                Player = player,
-                Score = new Score
-                {
-                    Points = input.Score.ToString(),
-                }
-            };
-
-           await dbContext.PlayerScores.AddAsync(playerScore);
-           await dbContext.SaveChangesAsync();
-
+            await tetrisDbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<PlayerInputModel> GetPlayerScores()
+        public async Task ChangePlayerNicknameAsync(ChangeNicknameInputModel input)
         {
-            var viewModel = dbContext.Players.Select(x => new PlayerInputModel
-            {
-                Name = x.Nickname,
-                PlayerScores = x.PlayerScores.Select(y => new SelectListItem
-                {
-                    Value = y.Player.Id.ToString(),
-                    Text = y.Score.Points,                   
-                }),
-            }).ToList();
+            var currentPlayer = tetrisDbContext.Players.FirstOrDefault(x => x.Id == input.UserId);
 
-            return viewModel;
+            currentPlayer.PlayerNickname = input.PlayerNickname;
+            tetrisDbContext.Players.Update(currentPlayer);
+            await tetrisDbContext.SaveChangesAsync();
         }
     }
 }

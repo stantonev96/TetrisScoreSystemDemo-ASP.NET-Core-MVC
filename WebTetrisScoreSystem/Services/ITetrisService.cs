@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WebTetrisScoreSystem.ViewModels;
 
@@ -6,8 +8,8 @@ namespace WebTetrisScoreSystem.Services
 {
     public interface ITetrisService
     {
-        IEnumerable<PlayerInputModel> GetPlayerScores();
+        Task AddScoreForCurrentPlayerAsync(PlayGameInputModel input);
 
-        Task AddPlayerScoreAsync(PlayerInputModel input);
+        Task ChangePlayerNicknameAsync(ChangeNicknameInputModel input);
     }
 }

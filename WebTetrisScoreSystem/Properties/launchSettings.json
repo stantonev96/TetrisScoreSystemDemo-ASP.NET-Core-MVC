@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:14921",
-      "sslPort": 44321
+      "applicationUrl": "http://localhost:18205",
+      "sslPort": 44326
     }
   },
   "profiles": {
@@ -18,6 +18,7 @@
     },
     "WebTetrisScoreSystem": {
       "commandName": "Project",
+      "dotnetRunMessages": "true",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
