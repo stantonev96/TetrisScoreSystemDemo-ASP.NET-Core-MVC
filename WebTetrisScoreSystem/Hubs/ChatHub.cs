@@ -20,13 +20,13 @@ namespace WebTetrisScoreSystem.Hubs
             this.userManager = userManager;
         }
 
-        public async Task SendMessage(string message)
-        {
+        public async Task SendMessage(string message, string timeSent)
+        {       
             var userId = Context.UserIdentifier;
             var player = await userManager.FindByIdAsync(userId);
             if (message != string.Empty)
             {
-                await Clients.All.SendAsync("ReceiveMessage", player.UserName, message);
+                await Clients.All.SendAsync("ReceiveMessage", player.UserName, message, timeSent);
             }
         }
     }
