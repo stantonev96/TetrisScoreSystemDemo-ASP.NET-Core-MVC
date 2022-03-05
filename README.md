@@ -2,4 +2,5 @@
 1. 2 user roles - Admin and Player
 2. Adding a new game score and changing nickname (Player)
 3. Updating and deleting players and players' game scores (Admin)
-4. Chat between the players and/or admin
+4. Checking ranklist of the players based on their total maxouts and highest kicker (Admin)
+5. Chat between the players and/or admin
